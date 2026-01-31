@@ -2,27 +2,52 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>Sovereign AI | yzeedzeeod1</title>
+    <title>Sovereign Private AI | yzeedzeeod1</title>
     <style>
-        body { background: #0f172a; color: white; font-family: sans-serif; text-align: center; padding-top: 50px; }
-        #display-name { font-size: 30px; font-weight: bold; transition: 0.5s; }
-        .status { color: #10b981; margin-top: 20px; }
+        body { background: #020617; color: #f8fafc; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; overflow: hidden; }
+        .lock-screen { text-align: center; border: 1px solid #1e293b; padding: 40px; border-radius: 20px; background: #0f172a; box-shadow: 0 0 50px rgba(0,0,0,0.5); }
+        h1 { color: #ffd700; font-size: 24px; margin-bottom: 20px; }
+        input { padding: 12px; border-radius: 8px; border: 1px solid #334155; background: #1e293b; color: white; width: 200px; text-align: center; font-size: 18px; outline: none; }
+        input:focus { border-color: #ffd700; }
+        button { padding: 12px 25px; border-radius: 8px; border: none; background: #ffd700; color: #000; font-weight: bold; cursor: pointer; margin-top: 15px; transition: 0.3s; }
+        button:hover { background: #eab308; }
+        #app-content { display: none; text-align: center; }
     </style>
 </head>
 <body>
-    <div id="display-name">yzeedzeeod1</div>
-    <div class="status">● الربط السيادي فعال</div>
-    
+
+    <div id="lock-screen" class="lock-screen">
+        <h1>الدخول السيادي لـ yzeedzeeod1</h1>
+        <input type="password" id="passCode" placeholder="أدخل رمز الدخول">
+        <br>
+        <button onclick="checkAccess()">فتح التطبيق</button>
+    </div>
+
+    <div id="app-content">
+        <h1 style="font-size: 45px; text-shadow: 0 0 20px #ffd700; color: #ffd700;">مرحباً بك يا ملك</h1>
+        <p style="font-size: 22px;">هذا التطبيق تحت سيادتك الكاملة ولا يمكن لأحد غيرك استخدامه.</p>
+        <div style="color: #10b981; font-size: 18px; margin-top: 20px;">● النظام مشفر ومؤمن برمز (2004)</div>
+    </div>
+
     <script>
-        // كود الاستقبال الحقيقي - لا يغلق الاتصال
-        const liveUpdate = () => {
-            // Gemini أمر تغيير اللون المباشر من سيرفر
-            document.getElementById('display-name').style.color = "#ffd700";
-            document.getElementById('display-name').style.textShadow = "0 0 20px #ffd700";
-            console.log("تم استقبال التحديث الملكي لـ yzeedzeeod1");
-        };
-        // تشغيل الحقن فوراً
-        setInterval(liveUpdate, 2000);
+        function checkAccess() {
+            const code = document.getElementById('passCode').value;
+            // الرمز الخاص بك هو 2004
+            if(code === "2004") {
+                document.getElementById('lock-screen').style.display = 'none';
+                document.getElementById('app-content').style.display = 'block';
+                document.body.style.background = "#0f172a";
+            } else {
+                alert("رمز خاطئ! الوصول مرفوض.");
+            }
+        }
+        
+        // السماح بالدخول عند الضغط على زر Enter
+        document.getElementById('passCode').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                checkAccess();
+            }
+        });
     </script>
 </body>
 </html>
